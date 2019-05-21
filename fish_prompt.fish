@@ -20,7 +20,7 @@ end
 function show_status -d "Function to show the current status"
   if [ $RETVAL -ne 0 ]
     prompt_segment red white " ▲ "
-    set pad ""
+    set pad " "
     end
   if [ -n "$SSH_CLIENT" ]
       prompt_segment blue white " SSH: "
@@ -76,7 +76,9 @@ function show_prompt -d "Shows prompt with cue for current priv"
     set_color normal
     echo -n -s " "
   else
-    prompt_segment normal white " \$ "
+    prompt_segment normal red "❯"
+    prompt_segment normal yellow "❯"
+    prompt_segment normal green "❯ "
     end
 
   set_color normal
